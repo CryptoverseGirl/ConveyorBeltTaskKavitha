@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ConveyorBeltScene.unity
-    guid: 61c658a87419147449397b83ad678952
+    path: Assets/Scenes/ConveyorBeltExperimenting.unity
+    guid: 49d7c060f34b47640989903236253ec4
   m_configObjects: {}
