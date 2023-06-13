@@ -2346,6 +2346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7fe9cd3f95711419bd1be7cee733c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TotalSpawnedBoxesText: {fileID: 574821170}
+  damagedBoxesText: {fileID: 1141003874}
+  perfectBoxesText: {fileID: 509043820}
+  exportButton: {fileID: 435041164}
 --- !u!1 &657348821
 GameObject:
   m_ObjectHideFlags: 0
