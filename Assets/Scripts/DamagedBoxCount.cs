@@ -9,11 +9,10 @@ public class DamagedBoxCount : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Boxes boxVar = other.gameObject.GetComponent<Boxes>();
-        if (boxVar != null && boxVar.GetComponent<ConveyorSpawnBelt>())
+        if (boxVar != null )
         {
             _damagedBoxCount = _damagedBoxCount + 1;
             damagedBoxCountText.text = _damagedBoxCount.ToString();
         }
     }
-
 }
