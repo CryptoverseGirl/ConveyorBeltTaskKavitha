@@ -17,4 +17,9 @@ public class ConveyorManager : MonoBehaviour
     public bool power;
     
     public void SwitchPower(bool value) => power = value;
+
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
+    }
 }

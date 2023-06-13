@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
@@ -7,8 +8,10 @@ using UnityEngine.Serialization;
 
 public class ExportDataManager : MonoBehaviour
 {
-        public TextMeshProUGUI TotalSpawnedBoxesText, damagedBoxesText, perfectBoxesText;
+        public TextMeshProUGUI totalSpawnedBoxesText, damagedBoxesText, perfectBoxesText, exportedLocationText;
+        public GameObject exportDataPopup;
         public Button exportButton;
+        private string fileN;
         
         private void Start()
         {
@@ -17,7 +20,7 @@ public class ExportDataManager : MonoBehaviour
 
         private void ExportDataToCSV()
         {
-                string spawnedBoxesCount = TotalSpawnedBoxesText.text;
+                string spawnedBoxesCount = totalSpawnedBoxesText.text;
                 string damagedBoxesCount = damagedBoxesText.text;
                 string perfectBoxesCount = perfectBoxesText.text;
 
@@ -29,6 +32,7 @@ public class ExportDataManager : MonoBehaviour
                 string fileName = "converyordata.csv";
                 string downloadsPath = GetDownloadsPath();
                 string filePath = Path.Combine(downloadsPath, fileName);
+                fileN = filePath;
 
                 using (StreamWriter writer = new StreamWriter(filePath))
                 {
@@ -37,6 +41,23 @@ public class ExportDataManager : MonoBehaviour
                 }
 
                 Debug.Log("Data exported to CSV file: " + filePath);
+        }
+
+        public void DataExportedTextPopup()
+        {
+                StartCoroutine("ExportDataPopup", 2f);
+
+        }
+
+        private IEnumerator ExportDataPopup()
+        {
+                exportDataPopup.SetActive(true);
+                yield return new WaitForSeconds(2f);
+                exportedLocationText.text = fileN.ToString();
+                yield return new WaitForSeconds(5f);
+                exportDataPopup.SetActive(false);
+                
+
         }
 
         private string GetDownloadsPath()
